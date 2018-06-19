@@ -4,6 +4,7 @@ from articles.models import Article
 
 class ArticleSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
+    board_id = serializers.IntegerField(required=True, allow_null=False)
     title = serializers.CharField(required=True, allow_blank=False, max_length=1000)
     body = serializers.CharField(required=True, allow_blank=False, max_length=2000)
     views = serializers.IntegerField(read_only=True)
@@ -19,6 +20,8 @@ class ArticleSerializer(serializers.Serializer):
         instance.save()
         return instance
 
+
+class ArticleListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Article
-        fields = ('id', 'title', 'views', 'created_at')
+        fields = ('id', 'board_id', 'title', 'views', 'created_at')

@@ -4,7 +4,7 @@ from articles.models import Article
 
 class ArticleSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
-    board_id = serializers.IntegerField(required=True, allow_null=False)
+    board_id = serializers.IntegerField(required=False, allow_null=False)
     title = serializers.CharField(required=True, allow_blank=False, max_length=1000)
     body = serializers.CharField(required=True, allow_blank=False, max_length=2000)
     views = serializers.IntegerField(read_only=True)

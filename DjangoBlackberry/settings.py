@@ -41,7 +41,10 @@ INSTALLED_APPS = [
     'boards.apps.BoardsConfig',
     'articles.apps.ArticlesConfig',
     'comments.apps.CommentsConfig',
+    'accounts.apps.AccountsConfig',
 ]
+
+AUTH_USER_MODEL = 'accounts.Berry'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

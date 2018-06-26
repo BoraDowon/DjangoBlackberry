@@ -16,10 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from DjangoBlackberry import test_view
+from rest_framework.documentation import include_docs_urls
+from rest_framework.authtoken import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include('boards.urls')),
     path('api/v1/', include('articles.urls')),
     path('api/v1/', include('comments.urls')),
     path('api/v1/', include('accounts.urls')),
+    path('api-auth/', views.obtain_auth_token),
+    path('api/v1/', include_docs_urls(title='Blackberry API')),
+    path('test/', test_view.TestView.as_view())
 ]

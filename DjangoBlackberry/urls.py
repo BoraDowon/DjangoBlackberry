@@ -28,5 +28,5 @@ urlpatterns = [
     path('api/v1/', include('accounts.urls')),
     path('api-auth/', views.obtain_auth_token),
     path('api/v1/', include_docs_urls(title='Blackberry API')),
-    path('test/', test_view.TestView.as_view())
+    #path('test/', test_view.TestView.as_view())
 ]
